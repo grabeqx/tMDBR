@@ -5,10 +5,13 @@ import { connect } from 'react-redux';
 import { discoverMovies } from '../actions/action.creator.js';
 import { withRouter } from 'react-router-dom';
 
+import CardGrid from '../containers/CardGrid';
+
 class Discover extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.movies;
+        console.log(this);
     }
 
     componentDidMount() {
@@ -23,9 +26,7 @@ class Discover extends React.Component {
 
     render() {
         return (
-            <div>
-                discover
-            </div>
+            <CardGrid />
         )
     }
 }
@@ -36,6 +37,6 @@ const mapStateToProps = function(state) {
     }
 }
 
-const Discovercontainer = withRouter(connect(mapStateToProps, { discoverMovies })(Discover));
+const Discovercontainer = connect(mapStateToProps, { discoverMovies })(Discover);
 
 export default Discovercontainer;
