@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import { history } from '../stores/AppStore.js';
 
-import discoverContainer from './Discover';
+import Discover from './Discover';
 import SearchComponent from './SearchComponent';
 
 class App extends React.Component {
@@ -16,7 +16,7 @@ class App extends React.Component {
         return (
             <ConnectedRouter history={history}>
                 <Switch>
-                    <Route exact path="/" component={discoverContainer} />)} />
+                    <Route exact path="/" component={Discover} />
                     <Route path="/search" component={SearchComponent} />
                 </Switch>
             </ConnectedRouter>

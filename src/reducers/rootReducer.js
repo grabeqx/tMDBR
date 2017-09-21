@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import appReducer from './appReducer';
+import movies from './movies';
+import tvShows from './tvShows';
 
 const rootReducer = combineReducers({
-    appReducer,
+    movies,
+    tvShows,
     router: routerReducer
 })
 
