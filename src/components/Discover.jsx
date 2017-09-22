@@ -11,7 +11,7 @@ class Discover extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.movies;
-        console.log(this);
+        this.imageServer = "https://image.tmdb.org/t/p/w300/";
     }
 
     componentDidMount() {
@@ -26,7 +26,7 @@ class Discover extends React.Component {
 
     render() {
         return (
-            <CardGrid />
+            <CardGrid items={this.state.movies} grid="4" imgServ={this.imageServer}/>
         )
     }
 }

@@ -8,7 +8,6 @@ import TmdbrDrawer from './TmdbrDrawer';
 const styles = theme => ({
     root: {
         width: '100%',
-        minHeight: '100vh',
         marginTop: 0,
         zIndex: 1,
         overflow: 'hidden',
@@ -17,16 +16,15 @@ const styles = theme => ({
         position: 'relative',
         display: 'flex',
         width: '100%',
-        minHeight: '100vh',
     },
     content: {
         backgroundColor: theme.palette.background.default,
         width: '100%',
         padding: theme.spacing.unit * 3,
-        height: 'calc(100vh - 56px)',
+        height: 'calc(100% - 56px)',
         marginTop: 56,
         [theme.breakpoints.up('sm')]: {
-            height: 'calc(100vh - 64px)',
+            height: 'calc(100% - 64px)',
             marginTop: 64,
         },
     }

@@ -9,7 +9,7 @@ const drawerWidth = 240;
 
 const styles = theme => ({
     appBar: {
-        position: 'absolute',
+        position: 'fixed',
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         order: 1,

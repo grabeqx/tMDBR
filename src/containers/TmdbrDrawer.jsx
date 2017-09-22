@@ -28,7 +28,7 @@ const styles = theme => ({
 
 function TmdbrDrawer({classes, drawerTitle}) {
     return (
-        <Drawer type="permanent" classes={{paper: classes.drawerPaper}}>
+        <Drawer type="persistent" anchor="left" classes={{paper: classes.drawerPaper}}>
             <div className={classes.drawerHeader}>
                 <Typography>
                     {drawerTitle ? drawerTitle : null}
