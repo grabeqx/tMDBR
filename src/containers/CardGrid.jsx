@@ -8,19 +8,21 @@ import TmdbrCard from './TmdbrCard';
 const styles = theme => ({
 	root: {
 		flexGrow: 1,
-		marginTop: 30
+		marginTop: 30,
+		marginLeft: 'auto',
+		marginRight: 'auto',
+		maxWidth: 1100
 	}
 });
 
 function CardGrid(props) {
 	const classes = props.classes;
-	const grid = parseInt(props.grid);
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={24}>
 				{props.items.map((item) => (
-					<Grid item xs={grid}>
-						<TmdbrCard key={item.id} item={item} overviewMaxLength="90" imgServ={props.imgServ}/>
+					<Grid key={item.id} item xs={4}>
+						<TmdbrCard item={item} overviewMaxLength="90" imgServ={props.imgServ}/>
 					</Grid>
 				))}
 			</Grid>

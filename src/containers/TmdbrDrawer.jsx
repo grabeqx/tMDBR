@@ -12,7 +12,6 @@ const drawerWidth = 240;
 
 const styles = theme => ({
     drawerPaper: {
-        position: 'relative',
         height: '100%',
         width: drawerWidth,
     },
@@ -28,13 +27,14 @@ const styles = theme => ({
 
 function TmdbrDrawer({classes, drawerTitle}) {
     return (
-        <Drawer type="persistent" anchor="left" classes={{paper: classes.drawerPaper}}>
+        <Drawer type="permanent" classes={{ paper: classes.drawerPaper, docked: classes.drawerPaper }}>
             <div className={classes.drawerHeader}>
                 <Typography>
                     {drawerTitle ? drawerTitle : null}
                 </Typography>
             </div>
-            <List dense={false}>
+            <Divider />
+            <List>
                 <ListItem button>
                     <ListItemText primary="Single-line item"/>
                 </ListItem>

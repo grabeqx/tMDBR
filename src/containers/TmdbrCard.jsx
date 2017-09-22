@@ -6,9 +6,6 @@ import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
 const styles = {
-	card: {
-		maxWidth: 360,
-	},
 	media: {
 		height: 510,
 	},
@@ -20,7 +17,7 @@ function TmdbrCard(props) {
 	const overwiew = item.overview.slice(0, props.overviewMaxLength) + "...";
 	return (
 		<div>
-			<Card className={classes.card}>
+			<Card>
 			<CardMedia
 				className={classes.media}
 				image={props.imgServ + item.poster_path}

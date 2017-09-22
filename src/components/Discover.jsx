@@ -26,7 +26,7 @@ class Discover extends React.Component {
 
     render() {
         return (
-            <CardGrid items={this.state.movies} grid="4" imgServ={this.imageServer}/>
+            <CardGrid items={this.state.movies} imgServ={this.imageServer}/>
         )
     }
 }
