@@ -7,8 +7,14 @@ function* discoverMovies() {
     yield put({type: ACTIONS.DISCOVER_MOVIE_SUCCESS, payload: movies});
 }
 
+function* getMovie(action) {
+    const movie = yield call(tmdbAPI.getMovie, action.payload);
+    yield put({type: ACTIONS.GET_MOVIE_SUCCESS, payload: movie});
+}
+
 function* tmdbSaga() {
     yield takeLatest(ACTIONS.DISCOVER_MOVIE, discoverMovies);
+    yield takeLatest(ACTIONS.GET_MOVIE, getMovie);
 }
 
 export default tmdbSaga;

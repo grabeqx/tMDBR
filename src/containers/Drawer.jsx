@@ -4,10 +4,13 @@ import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
-import List, { ListItemText, ListItem } from 'material-ui/List';
+
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
-
+import withWidth from 'material-ui/utils/withWidth';
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
+import { changeDrawerState } from './actions.js';
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -25,31 +28,33 @@ const styles = theme => ({
     }
 });
 
-function TmdbrDrawer({classes, drawerTitle}) {
+function TmdbrDrawer(props) {
+    let {classes, drawerTitle} = props;
     return (
-        <Drawer type="permanent" classes={{ paper: classes.drawerPaper, docked: classes.drawerPaper }}>
+        <Drawer type={(props.width != 'lg' && props.width != 'xl') ? "temporary" : "permanent"} 
+            classes={{ paper: classes.drawerPaper, docked: classes.drawerPaper }} 
+            open={props.drawerState}
+            onClick={() => (props.changeDrawerState(false))}
+            >
             <div className={classes.drawerHeader}>
                 <Typography>
                     {drawerTitle ? drawerTitle : null}
                 </Typography>
             </div>
             <Divider />
-            <List>
-                <ListItem button>
-                    <ListItemText primary="Single-line item"/>
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                    <ListItemText primary="Single-line item"/>
-                </ListItem>
-                <Divider />
-            </List>
+            {props.children}
         </Drawer>
     );
+}
+
+function mapStateToProps(state) {
+    return {
+        drawerState: state.appState.drawerOpen
+    }
 }
 
 TmdbrDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TmdbrDrawer);
+export default compose(withStyles(styles), withWidth(), connect(mapStateToProps, {changeDrawerState}))(TmdbrDrawer);

@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
+import List, { ListItemText, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
 
-import TmdbrAppBar from './TmdbrAppBar';
-import TmdbrDrawer from './TmdbrDrawer';
+import AppBar from './AppBar';
+import Drawer from './Drawer';
 
 const styles = theme => ({
     root: {
@@ -36,8 +39,22 @@ function Content(props) {
     return (
         <div className={classes.root}>
             <div className={classes.appFrame}>
-                <TmdbrAppBar title={props.title}/>
-                <TmdbrDrawer drawerTitle={props.drawerTitle}/>
+                <AppBar title={props.title}>
+                    <Button color="contrast">Login</Button>
+                    <Button color="contrast">Login</Button>
+                </AppBar>
+                <Drawer drawerTitle={props.drawerTitle}>
+                    <List>
+                        <ListItem button>
+                            <ListItemText primary="Single-line item"/>
+                        </ListItem>
+                        <Divider />
+                        <ListItem button>
+                            <ListItemText primary="Single-line item"/>
+                        </ListItem>
+                        <Divider />
+                    </List>
+                </Drawer>
                 <main className={classes.content}>
                     {props.children}
                 </main>

@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import actionCreators from './actions/action.creator';
+import actionCreators from './actions/actions';
 import App from './components/App.jsx';
 
 function applyStatetoProps(state) {

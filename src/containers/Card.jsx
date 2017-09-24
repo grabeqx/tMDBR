@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import { Link } from 'react-router-dom';
 
 const styles = {
 	media: {
@@ -20,7 +21,7 @@ function TmdbrCard(props) {
 			<Card>
 			<CardMedia
 				className={classes.media}
-				image={props.imgServ + item.poster_path}
+				image={"https://image.tmdb.org/t/p/w300/" + item.poster_path}
 				title="Contemplative Reptile"
 			/>
 			<CardContent>
@@ -32,12 +33,11 @@ function TmdbrCard(props) {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<Button dense color="primary">
-				Share
-				</Button>
-				<Button dense color="primary">
-				Learn More
-				</Button>
+				<Link to={`/details/${item.id}`}>
+					<Button dense color="primary" className={classes.button}>
+						More
+					</Button>
+				</Link>
 			</CardActions>
 			</Card>
 		</div>

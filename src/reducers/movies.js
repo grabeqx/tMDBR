@@ -1,28 +1,24 @@
 import ACTIONS from '../constants/actions';
 
-function discoverMoviesReducer(state = {
+const movies = function (state = {
+    list: [],
     page: 0,
-    movies: []
+    currentMovie: {}
 }, action) {
     switch(action.type) {
         case ACTIONS.DISCOVER_MOVIE_SUCCESS:
             return {
                 ...state,
                 page: action.payload.page,
-                movies: action.payload.results
+                list: action.payload.results
             }
-        default: 
-            return state;
-    }
-
-}
-
-const movies = function (state = {
-    discoveredMovies: {}
-}, action) {
-    return {
-        ...state,
-        discoveredMovies: discoverMoviesReducer(state.movies, action)
+        case ACTIONS.GET_MOVIE_SUCCESS:
+            return {
+                ...state,
+                currentMovie: action.payload
+            }
+        default:
+            return state
     }
 }
 

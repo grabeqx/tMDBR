@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
-import TmdbrCard from './TmdbrCard';
+import Card from './Card';
 
 const styles = theme => ({
 	root: {
@@ -21,8 +21,8 @@ function CardGrid(props) {
 		<div className={classes.root}>
 			<Grid container spacing={24}>
 				{props.items.map((item) => (
-					<Grid key={item.id} item xs={4}>
-						<TmdbrCard item={item} overviewMaxLength="90" imgServ={props.imgServ}/>
+					<Grid key={item.id} item xs={12} sm={6} md={4}>
+						<Card item={item} overviewMaxLength="90" />
 					</Grid>
 				))}
 			</Grid>

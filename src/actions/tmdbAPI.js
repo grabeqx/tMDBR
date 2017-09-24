@@ -2,9 +2,14 @@ import axios from 'axios';
 import CONFIG from '../constants/config';
 
 const tmdbAPI = {
-
+    
     discoverMovies: function() {
-        return axios.get('https://api.themoviedb.org/3/discover/movie?api_key=9ae9d0ee31e09f4ed246c5726056b7cf')
+        return axios.get(`${CONFIG.API_LINK}/discover/movie?api_key=${CONFIG.API_KEY}`)
+            .then(response => response.data)
+    },
+
+    getMovie: function(id) {
+        return axios.get(`${CONFIG.API_LINK}/movie/${id}?api_key=${CONFIG.API_KEY}`)
             .then(response => response.data)
     }
 

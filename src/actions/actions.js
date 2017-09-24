@@ -5,3 +5,10 @@ export function discoverMovies() {
         type: ACTIONS.DISCOVER_MOVIE
     }
 }
+
+export function getMovie(id) {
+    return {
+        type: ACTIONS.GET_MOVIE,
+        payload: id
+    }
+}
