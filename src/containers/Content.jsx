@@ -22,6 +22,7 @@ const styles = theme => ({
     },
     content: {
         backgroundColor: theme.palette.background.default,
+        paddingBottom: theme.spacing.unit * 3,
         width: '100%',
         height: 'calc(100% - 56px)',
         marginTop: 56,

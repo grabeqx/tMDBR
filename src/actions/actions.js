@@ -12,3 +12,10 @@ export function getMovie(id) {
         payload: id
     }
 }
+
+export function changeTitle(title) {
+    return {
+        type: ACTIONS.CHANGE_TITLE,
+        payload: title
+    }
+}

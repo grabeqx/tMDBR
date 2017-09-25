@@ -11,6 +11,8 @@ import withWidth from 'material-ui/utils/withWidth';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import { changeDrawerState } from './actions.js';
+import { Link } from 'react-router-dom';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -24,7 +26,7 @@ const styles = theme => ({
         justifyContent: 'center',
         padding: '0 8px',
         ...theme.mixins.toolbar,
-        fontSize: '20px'
+        fontSize: '25px'
     }
 });
 
@@ -37,8 +39,8 @@ function TmdbrDrawer(props) {
             onClick={() => (props.changeDrawerState(false))}
             >
             <div className={classes.drawerHeader}>
-                <Typography>
-                    {drawerTitle ? drawerTitle : null}
+                <Typography type="title">
+                    <Link to="/">{drawerTitle ? drawerTitle : null}</Link>
                 </Typography>
             </div>
             <Divider />

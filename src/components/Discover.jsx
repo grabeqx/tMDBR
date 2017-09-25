@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { discoverMovies } from '../actions/actions.js';
+import { discoverMovies, changeTitle } from '../actions/actions.js';
 import { Link } from 'react-router-dom';
 import CardGrid from '../containers/CardGrid';
 
@@ -13,6 +13,7 @@ class Discover extends React.Component {
 
     componentDidMount() {
         this.props.discoverMovies();
+        this.props.changeTitle("Discover Movies");
     }
 
     render() {
@@ -32,5 +33,5 @@ const mapStateToProps = function(state) {
 
 export default connect(
     mapStateToProps, 
-    { discoverMovies }
+    { discoverMovies, changeTitle }
 )(Discover);

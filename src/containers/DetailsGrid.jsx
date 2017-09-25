@@ -9,7 +9,8 @@ const styles = theme => ({
 		marginTop: 30,
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		maxWidth: 1100
+        maxWidth: 1100,
+        padding: 10
 	}
 });
 
