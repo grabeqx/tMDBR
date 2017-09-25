@@ -13,10 +13,10 @@ class App extends React.Component {
     constructor(props) {
         super(props);
     }
-
+    
     render() {
         return (
-            <Content title="TMDBR App" drawerTitle="Menu">
+            <Content title="TMDBR App" drawerTitle="Menu" >
                 <ConnectedRouter history={history}>
                     <Switch>
                         <Route exact path="/" component={Discover} />

@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMovie } from '../actions/actions.js';
+import Grid from 'material-ui/Grid';
+
+import DetailsGrid from '../containers/DetailsGrid';
+import DetailsTop from '../containers/DetailsTop';
 
 class MovieDetails extends React.Component {
     constructor(props) {
@@ -17,7 +21,8 @@ class MovieDetails extends React.Component {
         console.log(this.props);
         return (
             <div>
-                details
+                <DetailsTop img={this.props.currentMovie.backdrop_path} title={this.props.currentMovie.title}/>
+                <DetailsGrid></DetailsGrid>
             </div>
         )
     }
