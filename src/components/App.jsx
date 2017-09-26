@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import Discover from './Discover';
 import SearchComponent from './SearchComponent';
-import MovieDetails from './MovieDetails';
+import Movie from './Movie';
 import Content from '../containers/Content';
 
 class App extends React.Component {
@@ -21,7 +21,7 @@ class App extends React.Component {
                 <Content title={this.props.title} drawerTitle="TMDBR App" >
                     <Switch>
                         <Route exact path="/" component={Discover} />
-                        <Route path="/details/:id" component={MovieDetails} />
+                        <Route path="/details/:id" component={Movie} />
                         <Route path="/search" component={SearchComponent} />
                     </Switch>
                 </Content>

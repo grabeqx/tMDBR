@@ -4,6 +4,9 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import FavoriteIcon from 'material-ui-icons/Favorite';
+import IconButton from 'material-ui/IconButton';
+
 import { Link } from 'react-router-dom';
 import CONFIG from '../constants/config.js';
 
@@ -34,6 +37,9 @@ function TmdbrCard(props) {
 				</Typography>
 			</CardContent>
 			<CardActions>
+				<IconButton aria-label="Add to favorites" color="primary">
+					<FavoriteIcon />
+				</IconButton>
 				<Link to={`/details/${item.id}`}>
 					<Button dense color="primary" className={classes.button}>
 						More

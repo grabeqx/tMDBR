@@ -15,7 +15,7 @@ const styles = theme => ({
     },
     top: {
         overflow: 'hidden',
-        height: 300
+        height: 350
     }
 });
 

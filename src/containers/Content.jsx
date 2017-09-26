@@ -5,6 +5,7 @@ import Button from 'material-ui/Button';
 import List, { ListItemText, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 
+
 import AppBar from './AppBar';
 import Drawer from './Drawer';
 
@@ -40,8 +41,7 @@ function Content(props) {
         <div className={classes.root}>
             <div className={classes.appFrame}>
                 <AppBar title={props.title}>
-                    <Button color="contrast">Login</Button>
-                    <Button color="contrast">Login</Button>
+                    <Button color="contrast">Favorites</Button>
                 </AppBar>
                 <Drawer drawerTitle={props.drawerTitle}>
                     <List>
