@@ -4,11 +4,10 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import FavoriteIcon from 'material-ui-icons/Favorite';
-import IconButton from 'material-ui/IconButton';
-
 import { Link } from 'react-router-dom';
+
 import CONFIG from '../constants/config.js';
+import { FavoriteButton } from './shared';
 
 const styles = {
 	media: {
@@ -16,13 +15,14 @@ const styles = {
 	},
 };
 
-function TmdbrCard(props) {
+
+
+function TmdbrCard(props) {;
 	const classes = props.classes;
 	const item = props.item;
 	const overwiew = item.overview.slice(0, props.overviewMaxLength) + "...";
 	return (
-		<div>
-			<Card>
+		<Card>
 			<CardMedia
 				className={classes.media}
 				image={CONFIG.IMGSERV_S + item.poster_path}
@@ -37,17 +37,14 @@ function TmdbrCard(props) {
 				</Typography>
 			</CardContent>
 			<CardActions>
-				<IconButton aria-label="Add to favorites" color="primary">
-					<FavoriteIcon />
-				</IconButton>
+				<FavoriteButton {...props} />
 				<Link to={`/details/${item.id}`}>
 					<Button dense color="primary" className={classes.button}>
 						More
 					</Button>
 				</Link>
 			</CardActions>
-			</Card>
-		</div>
+		</Card>
 	);
 }
 

@@ -19,3 +19,16 @@ export function changeTitle(title) {
         payload: title
     }
 }
+
+export function addToFavorites(movie) {
+    return {
+        type: ACTIONS.ADD_TO_FAVORITES,
+        payload: movie
+    }
+}
+export function removeFromFavorites(id) {
+    return {
+        type: ACTIONS.REMOVE_FROM_FAVORITES,
+        payload: id
+    }
+}

@@ -9,6 +9,7 @@ import Discover from './Discover';
 import SearchComponent from './SearchComponent';
 import Movie from './Movie';
 import Content from '../containers/Content';
+import FeaturesMovies from './FeaturesMovies';
 
 class App extends React.Component {
     constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Discover} />
                         <Route path="/details/:id" component={Movie} />
                         <Route path="/search" component={SearchComponent} />
+                        <Route path="/featured-movies" component={FeaturesMovies} />
                     </Switch>
                 </Content>
             </ConnectedRouter>
@@ -35,5 +37,6 @@ function mapStateToProps(state) {
         title: state.appState.title
     }
 }
+
 
 export default connect(mapStateToProps, null)(App);

@@ -4,11 +4,10 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Chip from 'material-ui/Chip';
-import FavoriteIcon from 'material-ui-icons/Favorite';
-import IconButton from 'material-ui/IconButton';
-
 import { withStyles } from 'material-ui/styles';
 import { Link } from 'react-router';
+
+import { FavoriteButton } from './shared';
 
 const styles = theme => ({
     paper: {
@@ -64,9 +63,12 @@ function MovieDesc(props) {
                             />
                         ))}
                     </div>
-                    <IconButton aria-label="Add to favorites" color="primary" className={classes.favIcon}>
-                        <FavoriteIcon />
-                    </IconButton>
+                    <FavoriteButton 
+                        item={props}
+                        addToFavorites={props.addToFavorites} 
+                        removeFromFavorites={props.removeFromFavorites}
+                        inFavorites={props.favoritesMovies.findIndex((movie) => movie.id === props.id)}
+                    />
                 </div>
             </Paper>
         </Grid>

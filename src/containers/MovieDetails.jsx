@@ -37,7 +37,7 @@ function MovieDetails({classes, movie}) {
                 <Typography type="headline" component="h4">Vote average</Typography>
                 <Typography type="body1" component="p">{movie.vote_average}</Typography>
                 <Typography type="headline" component="h4" className={classes.detailsTitle}>Homepage</Typography>
-                <Typography type="body1" component="p"><a href={movie.homepage}>Link</a></Typography>
+                <Typography type="body1" component="p"><a href={movie.homepage} target="_blank">Link</a></Typography>
                 <Typography type="headline" component="h4" className={classes.detailsTitle}>Status</Typography>
                 <Typography type="body1" component="p">{movie.status}</Typography>
                 <Typography type="headline" component="h4" className={classes.detailsTitle}>Release date</Typography>

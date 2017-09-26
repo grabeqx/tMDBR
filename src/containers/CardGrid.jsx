@@ -19,9 +19,15 @@ function CardGrid(props) {
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={24}>
-				{props.items.map((item) => (
-					<Grid key={item.id} item xs={12} sm={6} md={4}>
-						<Card item={item} overviewMaxLength="90" />
+				{props.items.map((item, index) => (
+					<Grid key={index} item xs={12} sm={6} md={4}>
+						<Card 
+							item={item} 
+							overviewMaxLength="90" 
+							addToFavorites={props.addToFavorites} 
+							removeFromFavorites={props.removeFromFavorites}
+							inFavorites={props.favoritesMovies.findIndex((movie) => movie.id === item.id)}
+						/>
 					</Grid>
 				))}
 			</Grid>

@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import List, { ListItemText, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import { Link } from 'react-router-dom';
 
 
 import AppBar from './AppBar';
@@ -41,7 +42,9 @@ function Content(props) {
         <div className={classes.root}>
             <div className={classes.appFrame}>
                 <AppBar title={props.title}>
-                    <Button color="contrast">Favorites</Button>
+                    <Link to="/featured-movies">
+                        <Button color="contrast">Favorites</Button>
+                    </Link>
                 </AppBar>
                 <Drawer drawerTitle={props.drawerTitle}>
                     <List>

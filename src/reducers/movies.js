@@ -3,7 +3,8 @@ import ACTIONS from '../constants/actions';
 const movies = function (state = {
     list: [],
     page: 0,
-    currentMovie: {}
+    currentMovie: {},
+    favoritesMovies: []
 }, action) {
     switch(action.type) {
         case ACTIONS.DISCOVER_MOVIE_SUCCESS:
@@ -16,6 +17,23 @@ const movies = function (state = {
             return {
                 ...state,
                 currentMovie: action.payload
+            }
+        case ACTIONS.ADD_TO_FAVORITES: 
+            return {
+                ...state,
+                favoritesMovies: [
+                    ...state.favoritesMovies, 
+                    action.payload
+                ]
+            }
+        case ACTIONS.REMOVE_FROM_FAVORITES:
+            let index = state.favoritesMovies.findIndex((movie) => movie.id == action.payload);
+            return {
+                ...state,
+                favoritesMovies: [
+                    ...state.favoritesMovies.slice(0, index),
+                    ...state.favoritesMovies.slice(index + 1)
+                ]
             }
         default:
             return state

@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
 
 import { withStyles } from 'material-ui/styles';
 import CONFIG from '../constants/config.js';
@@ -27,8 +25,7 @@ function DetailsTop(props) {
         backgroundPosition: '50% 30%'
     };
     return (
-        <div style={props.img ? style : null} className={classes.top}>
-        </div>
+        <div style={props.img ? style : null} className={classes.top}></div>
     )
 }
 

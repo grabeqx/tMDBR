@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { discoverMovies, changeTitle } from '../actions/actions.js';
+import { changeTitle } from '../actions/actions.js';
 import CardGridComponent from './CardGridComponent';
 
-class Discover extends React.Component {
+class FeaturesMovies extends React.Component {
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        this.props.discoverMovies();
-        this.props.changeTitle("Discover Movies");
+        this.props.changeTitle("Favorites Movies");
     }
     
     render() {
@@ -23,11 +22,11 @@ class Discover extends React.Component {
 
 const mapStateToProps = function(state) {
     return {
-        movies: state.movies.list
+        movies: state.movies.favoritesMovies
     }
 }
 
 export default connect(
     mapStateToProps, 
-    { discoverMovies, changeTitle }
-)(Discover);
+    { changeTitle }
+)(FeaturesMovies);
