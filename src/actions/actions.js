@@ -26,9 +26,17 @@ export function addToFavorites(movie) {
         payload: movie
     }
 }
+
 export function removeFromFavorites(id) {
     return {
         type: ACTIONS.REMOVE_FROM_FAVORITES,
+        payload: id
+    }
+}
+
+export function getTrailer(id) {
+    return {
+        type: ACTIONS.GET_TRAILER,
         payload: id
     }
 }

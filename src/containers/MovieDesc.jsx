@@ -7,7 +7,7 @@ import Chip from 'material-ui/Chip';
 import { withStyles } from 'material-ui/styles';
 import { Link } from 'react-router';
 
-import { FavoriteButton } from './shared';
+import FavoriteButton from '../components/FavoriteButton';
 
 const styles = theme => ({
     paper: {
@@ -39,19 +39,19 @@ const styles = theme => ({
 });
 
 function MovieDesc(props) {
-    let {classes} = props;
+    let {classes, movie } = props;
     let genres = props.genres || [];
     return (
         <Grid item xs={12}>
             <Paper className={classes.paper} elevation={2}>
                 <Typography type="headline" component="h3">
-                    {props.title}
+                    {movie.title}
                 </Typography>
                 <Typography type="body2" component="span" className={classes.subtitle}>
-                    {props.tagline}
+                    {movie.tagline}
                 </Typography>
                 <Typography type="body1" component="p">
-                    {props.desc}
+                    {movie.overview}
                 </Typography>
                 <div className={classes.row}>
                     <div className={classes.subRow}>
@@ -64,10 +64,8 @@ function MovieDesc(props) {
                         ))}
                     </div>
                     <FavoriteButton 
-                        item={props}
-                        addToFavorites={props.addToFavorites} 
-                        removeFromFavorites={props.removeFromFavorites}
-                        inFavorites={props.favoritesMovies.findIndex((movie) => movie.id === props.id)}
+                        movie={movie}
+                        inFavorites={props.favoritesMovies.findIndex((movie) => movie.id === props.movie.id)}
                     />
                 </div>
             </Paper>

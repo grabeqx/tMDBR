@@ -4,7 +4,8 @@ const movies = function (state = {
     list: [],
     page: 0,
     currentMovie: {},
-    favoritesMovies: []
+    favoritesMovies: [],
+    video: ""
 }, action) {
     switch(action.type) {
         case ACTIONS.DISCOVER_MOVIE_SUCCESS:
@@ -34,6 +35,11 @@ const movies = function (state = {
                     ...state.favoritesMovies.slice(0, index),
                     ...state.favoritesMovies.slice(index + 1)
                 ]
+            }
+        case ACTIONS.GET_TRAILER_SUCCESS: 
+            return {
+                ...state,
+                video: action.payload.results[0].key
             }
         default:
             return state

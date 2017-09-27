@@ -15,14 +15,14 @@ class FeaturesMovies extends React.Component {
     
     render() {
         return (
-            <CardGridComponent movies={this.props.movies} />
+            <CardGridComponent movies={this.props.favoritesMovies} />
         )
     }
 }
 
 const mapStateToProps = function(state) {
     return {
-        movies: state.movies.favoritesMovies
+        favoritesMovies: state.movies.favoritesMovies
     }
 }
 

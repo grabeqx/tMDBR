@@ -32,7 +32,7 @@ function MovieDetails({classes, movie}) {
     let revenue = movie.revenue || 0;
 
     return (
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={5} md={4}>
             <Paper className={classes.paper} elevation={2}>
                 <Typography type="headline" component="h4">Vote average</Typography>
                 <Typography type="body1" component="p">{movie.vote_average}</Typography>

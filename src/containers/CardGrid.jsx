@@ -10,7 +10,8 @@ const styles = theme => ({
 		marginTop: 30,
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		maxWidth: 1100
+		maxWidth: 1100,
+		padding: 10
 	}
 });
 
@@ -24,8 +25,6 @@ function CardGrid(props) {
 						<Card 
 							item={item} 
 							overviewMaxLength="90" 
-							addToFavorites={props.addToFavorites} 
-							removeFromFavorites={props.removeFromFavorites}
 							inFavorites={props.favoritesMovies.findIndex((movie) => movie.id === item.id)}
 						/>
 					</Grid>

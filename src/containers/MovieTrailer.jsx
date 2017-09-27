@@ -7,6 +7,7 @@ import { withStyles } from 'material-ui/styles';
 
 const styles = theme => ({
     paper: {
+        marginTop: 17,
         padding: 0,
         color: theme.palette.text.secondary,
     },
@@ -18,11 +19,11 @@ const styles = theme => ({
 
 function MovieTrailer(props) {
     let {classes} = props;
-    let genres = props.genres || [];
+    let src = `https://www.youtube.com/embed/${props.video}`;
     return (
         <Grid item xs={12}>
-            <Paper className={classes.paper} elevation={4}>
-                <iframe height="380" className={classes.iframe} src="https://www.youtube.com/embed/lDhGwwmoJTE" frameBorder="0" allowFullScreen></iframe>
+            <Paper className={classes.paper} elevation={2}>
+                <iframe height="380" className={classes.iframe} src={src} frameBorder="0" allowFullScreen></iframe>
             </Paper>
         </Grid>
     )

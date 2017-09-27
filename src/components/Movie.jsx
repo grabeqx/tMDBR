@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { getMovie, changeTitle, addToFavorites, removeFromFavorites } from '../actions/actions.js';
+import { getMovie, getTrailer } from '../actions/actions.js';
 import Grid from 'material-ui/Grid';
 
 import DetailsGrid from '../containers/DetailsGrid';
@@ -17,38 +17,20 @@ class Movie extends React.Component {
 
     componentDidMount() {
         this.props.getMovie(this.props.match.params.id);
-    }
-
-    componentDidUpdate() {
-        this.props.changeTitle(this.props.currentMovie.title);
-    }
-
-    addToFavorites() {
-        this.props.addToFavorites(this.props.currentMovie);
-    }
-
-    removeFromFavorites() {
-        this.props.removeFromFavorites(this.props.currentMovie.id);
+        this.props.getTrailer(this.props.match.params.id);
     }
 
     render() {
-        console.log(this.props.currentMovie);
-        let {classes} = this.props;
         return (
             <div>
                 <DetailsTop img={this.props.currentMovie.backdrop_path}/>
                 <DetailsGrid>
-                    <Grid container item xs={8}>
-                        <MovieDesc title={this.props.currentMovie.title} 
-                            desc={this.props.currentMovie.overview} 
-                            genres={this.props.currentMovie.genres} 
-                            tagline={this.props.currentMovie.tagline}
-                            id = {this.props.currentMovie.id}
+                    <Grid item xs={12} sm={7} md={8}>
+                        <MovieDesc 
+                            movie={this.props.currentMovie}
                             favoritesMovies = {this.props.favoritesMovies}
-                            addToFavorites={this.addToFavorites.bind(this)} 
-                            removeFromFavorites={this.removeFromFavorites.bind(this)}
                         />
-                        <MovieTrailer />
+                        <MovieTrailer video={this.props.video} />
                     </Grid>
                     <MovieDetails movie={this.props.currentMovie}/>
                 </DetailsGrid>
@@ -60,11 +42,12 @@ class Movie extends React.Component {
 function mapStateToProps(state) {
     return {
         currentMovie: state.movies.currentMovie,
-        favoritesMovies: state.movies.favoritesMovies
+        favoritesMovies: state.movies.favoritesMovies,
+        video: state.movies.video
     }
 }
 
 export default  connect(
     mapStateToProps, 
-    { getMovie, changeTitle, addToFavorites, removeFromFavorites }
+    { getMovie, getTrailer }
 )(Movie);
