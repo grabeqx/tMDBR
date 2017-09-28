@@ -41,6 +41,12 @@ const movies = function (state = {
                 ...state,
                 video: action.payload.results[0].key
             }
+        case ACTIONS.SEARCH_MOVIE_SUCCESS: 
+            return {
+                ...state,
+                page: action.payload.page,
+                list: action.payload.results
+            }
         default:
             return state
     }

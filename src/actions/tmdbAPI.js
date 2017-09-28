@@ -16,6 +16,11 @@ const tmdbAPI = {
     getTrailer: function(id) {
         return axios.get(`${CONFIG.API_LINK}/movie/${id}/videos?api_key=${CONFIG.API_KEY}`)
             .then(response => response.data)
+    },
+
+    searchMovie: function(query) {
+        return axios.get(`${CONFIG.API_LINK}/search/movie?api_key=${CONFIG.API_KEY}&query=${query}`)
+            .then(response => response.data)
     }
 
 }

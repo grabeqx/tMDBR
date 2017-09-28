@@ -23,7 +23,6 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component={Discover} />
                         <Route path="/details/:id" component={Movie} />
-                        <Route path="/search" component={SearchComponent} />
                         <Route path="/featured-movies" component={FeaturesMovies} />
                     </Switch>
                 </Content>

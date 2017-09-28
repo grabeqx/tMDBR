@@ -18,11 +18,17 @@ function* getTrailer(action) {
     yield put({type: ACTIONS.GET_TRAILER_SUCCESS, payload: trailer});
 }
 
+function* searchMovie(action) {
+    const movies = yield call(tmdbAPI.searchMovie, action.payload);
+    yield put({type: ACTIONS.SEARCH_MOVIE_SUCCESS, payload: movies});
+}
+
 
 function* tmdbSaga() {
     yield takeLatest(ACTIONS.DISCOVER_MOVIE, discoverMovies);
     yield takeLatest(ACTIONS.GET_MOVIE, getMovie);
     yield takeLatest(ACTIONS.GET_TRAILER, getTrailer);
+    yield takeLatest(ACTIONS.SEARCH_MOVIE, searchMovie);
 }
 
 export default tmdbSaga;

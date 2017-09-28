@@ -25,7 +25,7 @@ function TmdbrCard(props) {;
 		<Card elevation={2}>
 			<CardMedia
 				className={classes.media}
-				image={CONFIG.IMGSERV_S + item.poster_path}
+				image={item.poster_path ? CONFIG.IMGSERV_S + item.poster_path: ""}
 				title="Contemplative Reptile"
 			/>
 			<CardContent>

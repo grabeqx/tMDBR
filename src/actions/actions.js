@@ -40,3 +40,10 @@ export function getTrailer(id) {
         payload: id
     }
 }
+
+export function searchMovies(query) {
+    return {
+        type: ACTIONS.SEARCH_MOVIE,
+        payload: query
+    }
+}

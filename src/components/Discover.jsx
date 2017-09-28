@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { discoverMovies, changeTitle } from '../actions/actions.js';
 import CardGridComponent from './CardGridComponent';
+import SearchComponent from './SearchComponent';
 
 class Discover extends React.Component {
     constructor(props) {
@@ -16,7 +17,10 @@ class Discover extends React.Component {
     
     render() {
         return (
-            <CardGridComponent movies={this.props.movies} />
+            <div>
+                <SearchComponent />
+                <CardGridComponent movies={this.props.movies} />
+            </div>
         )
     }
 }
